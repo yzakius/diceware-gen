@@ -1,8 +1,6 @@
 import random
 
-counter = 1
-
-while counter == 1:
+while True:
 
     faces = int(input('Quantos lados tem o dado? '))
     blocks = int(input('Quantas blocos tem a senha?  '))
@@ -37,8 +35,6 @@ while counter == 1:
         print('Bloco {}: {} '.format(y, result[incremento:incremento + 5]))
         incremento = incremento + 5
         
-    choice = str(input('Deseja rolar mais dados? [S/N]'))
-    if choice == 'S' or choice == 's':
-        counter = 1
-    else:
-        counter = 0
+    choice = str(input('Deseja rolar mais dados? [S/N]')).upper()
+    if choice == 'N':
+        break
