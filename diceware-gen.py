@@ -1,40 +1,19 @@
-import random
+from random import randint
 
-while True:
+def rolar_dados(quantidade_rolagem):
+    for i in range(1, quantidade_rolagem + 1):
+        print(randint(1, quantidade_rolagem), end='')
+    print()
 
-    faces = int(input('Quantos lados tem o dado? '))
-    blocks = int(input('Quantas blocos tem a senha?  '))
-    
-    print('Rolando dados...')
-    print("{} lados com {} blocos".format(faces, blocks))
-    print('-' * 39)
-
+def blocos(quantidade_blocos, quantidade_rolagem):
     x = 0
-    lista = []
-    y = 0
-    incremento = 0
+    while x < quantidade_blocos:
+        rolar_dados(quantidade_rolagem)
+        x += 1
 
-
-    while x < blocks * 5: # cada bloco vai rolar o dado 5x.
-        x += 1            # contador
-        result = random.randint(1, faces)
-        lista.append(result)
-
-    s = ''
-    for i in lista:
-        s = s + str(i)
-    lista = [s]
-    result = ''.join(lista)
-
-    print('Resultado total: {}'.format(result))
-    print('-' * 39)
-    print('Resultado por blocos:')
-
-    while y < blocks:
-        y += 1
-        print('Bloco {}: {} '.format(y, result[incremento:incremento + 5]))
-        incremento = incremento + 5
-        
-    choice = str(input('Deseja rolar mais dados? [S/N]')).upper()
-    if choice == 'N':
-        break
+quantidade_blocos = int(input('Quantidade de Blocos da Senha: '))
+quantidade_rolagem = int(input('Quantidade de Rolagens do Dado: '))
+print('Rolando dados...')
+print('Resultado')
+print('*' * 10)
+blocos(quantidade_blocos, quantidade_rolagem)
